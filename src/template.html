@@ -1,0 +1,701 @@
+<title>Kayleigh Rutherford — Computational Biologist</title>
+<meta name="description" content="Senior Computational Biologist with a decade in translational genomics, now moving into industry ML/data science and health-data roles.">
+<style>
+  @font-face {
+    font-family: "Plex Serif";
+    font-weight: 600;
+    src: url(data:font/woff2;base64,__SERIF_SEMIBOLD__) format("woff2");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Plex Sans";
+    font-weight: 400;
+    src: url(data:font/woff2;base64,__SANS_REGULAR__) format("woff2");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Plex Sans";
+    font-weight: 600;
+    src: url(data:font/woff2;base64,__SANS_SEMIBOLD__) format("woff2");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Plex Mono";
+    font-weight: 400;
+    src: url(data:font/woff2;base64,__MONO_REGULAR__) format("woff2");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Plex Mono";
+    font-weight: 500;
+    src: url(data:font/woff2;base64,__MONO_MEDIUM__) format("woff2");
+    font-display: swap;
+  }
+
+  :root {
+    --paper: #f4f6fa;
+    --surface: #ffffff;
+    --ink: #101826;
+    --ink-soft: #47566b;
+    --ink-faint: #8494a8;
+    --accent: #1d4e89;
+    --accent-deep: #0f2f57;
+    --accent-tint: #e3ecf6;
+    --line: #dce3ec;
+    --shadow: 0 1px 2px rgba(16, 24, 38, 0.05);
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #0a0f1a;
+      --surface: #121a2a;
+      --ink: #eaf0f8;
+      --ink-soft: #a9b8cc;
+      --ink-faint: #62718a;
+      --accent: #5b9bd8;
+      --accent-deep: #8fc1ee;
+      --accent-tint: #16273d;
+      --line: #223047;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0a0f1a;
+    --surface: #121a2a;
+    --ink: #eaf0f8;
+    --ink-soft: #a9b8cc;
+    --ink-faint: #62718a;
+    --accent: #5b9bd8;
+    --accent-deep: #8fc1ee;
+    --accent-tint: #16273d;
+    --line: #223047;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    color-scheme: dark;
+  }
+  :root[data-theme="light"] {
+    --paper: #f4f6fa;
+    --surface: #ffffff;
+    --ink: #101826;
+    --ink-soft: #47566b;
+    --ink-faint: #8494a8;
+    --accent: #1d4e89;
+    --accent-deep: #0f2f57;
+    --accent-tint: #e3ecf6;
+    --line: #dce3ec;
+    --shadow: 0 1px 2px rgba(16, 24, 38, 0.05);
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Plex Sans", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--accent-tint); color: var(--accent-deep); }
+
+  a { color: var(--accent); text-decoration-color: var(--line); text-underline-offset: 3px; }
+  a:hover { color: var(--accent-deep); }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1, h2, h3 {
+    font-family: "Plex Serif", Georgia, serif;
+    font-weight: 600;
+    color: var(--ink);
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  .mono {
+    font-family: "Plex Mono", ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .eyebrow {
+    font-family: "Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.9rem;
+  }
+
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 1.75rem;
+  }
+
+  /* ---- top bar ---- */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3.1rem;
+    max-width: 780px;
+  }
+  .topbar .brand {
+    font-family: "Plex Mono", monospace;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .topbar nav {
+    display: flex;
+    gap: 1.4rem;
+  }
+  .topbar nav a {
+    font-family: "Plex Sans", sans-serif;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-decoration: none;
+  }
+  .topbar nav a:hover { color: var(--accent); }
+
+  /* ---- hero ---- */
+  .hero {
+    padding: 4.5rem 0 3.5rem;
+  }
+  .hero-grid {
+    display: flex;
+    gap: 2.75rem;
+    align-items: flex-start;
+  }
+  .hero-photo {
+    flex: none;
+    width: 132px;
+    height: 132px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--line);
+  }
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-text { flex: 1; min-width: 0; }
+  .hero h1 {
+    font-size: clamp(2.1rem, 4.2vw, 2.9rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+  }
+  .hero .role {
+    margin-top: 0.55rem;
+    font-family: "Plex Mono", monospace;
+    font-size: 0.98rem;
+    color: var(--ink-soft);
+  }
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 1.1rem;
+    padding: 0.32rem 0.7rem;
+    background: var(--accent-tint);
+    border-radius: 100px;
+    font-family: "Plex Mono", monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.03em;
+    color: var(--accent-deep);
+  }
+  .status-pill .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent);
+    flex: none;
+  }
+  .hero-lede {
+    margin-top: 1.35rem;
+    max-width: 62ch;
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+  }
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 1.6rem;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1rem;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid var(--line);
+    font-family: "Plex Sans", sans-serif;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--paper);
+    border-color: var(--accent);
+  }
+  .btn-primary:hover { background: var(--accent-deep); color: var(--paper); border-color: var(--accent-deep); }
+  .btn-ghost { color: var(--ink); background: var(--surface); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ---- sections ---- */
+  section { padding: 3.2rem 0; border-top: 1px solid var(--line); }
+  section > .wrap > h2 { font-size: 1.5rem; margin-bottom: 1.4rem; }
+
+  .about-body { max-width: 64ch; color: var(--ink-soft); }
+  .about-body p { margin: 0 0 1.1rem; }
+  .about-body p:last-child { margin-bottom: 0; }
+
+  blockquote.pull {
+    margin: 1.6rem 0;
+    padding: 0.2rem 0 0.2rem 1.1rem;
+    border-left: 2px solid var(--accent);
+    font-family: "Plex Serif", serif;
+    font-style: italic;
+    font-size: 1.08rem;
+    color: var(--ink);
+    max-width: 56ch;
+  }
+
+  /* ---- impact grid ---- */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .impact-card {
+    background: var(--surface);
+    padding: 1.3rem 1.4rem;
+  }
+  .impact-tag {
+    display: inline-block;
+    font-family: "Plex Mono", monospace;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    background: var(--accent-tint);
+    padding: 0.18rem 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.7rem;
+  }
+  .impact-card p { margin: 0; color: var(--ink-soft); font-size: 0.96rem; }
+
+  /* ---- experience ---- */
+  .job { padding: 1.6rem 0; border-bottom: 1px solid var(--line); }
+  .job:last-child { border-bottom: none; }
+  .job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .job-head h3 { font-size: 1.12rem; }
+  .job-org { color: var(--ink-soft); font-size: 0.94rem; margin-top: 0.2rem; }
+  .job-date {
+    font-family: "Plex Mono", monospace;
+    font-size: 0.82rem;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+  .job ul {
+    margin: 0.9rem 0 0;
+    padding-left: 1.15rem;
+    color: var(--ink-soft);
+  }
+  .job li { margin-bottom: 0.42rem; font-size: 0.96rem; }
+  .job li:last-child { margin-bottom: 0; }
+
+  .edu-list { list-style: none; margin: 0; padding: 0; }
+  .edu-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.96rem;
+  }
+  .edu-list li:last-child { border-bottom: none; }
+  .edu-list .deg { color: var(--ink); }
+  .edu-list .school { color: var(--ink-soft); }
+  .edu-year { font-family: "Plex Mono", monospace; color: var(--ink-faint); font-size: 0.82rem; white-space: nowrap; }
+
+  /* ---- publications ---- */
+  .pub-stats {
+    font-family: "Plex Mono", monospace;
+    font-size: 0.82rem;
+    color: var(--ink-faint);
+    margin-bottom: 1.5rem;
+  }
+  .pub-list { list-style: none; margin: 0; padding: 0; counter-reset: pub; }
+  .pub-item {
+    counter-increment: pub;
+    display: flex;
+    gap: 1rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .pub-item:first-child { padding-top: 0; }
+  .pub-item::before {
+    content: "[" counter(pub) "]";
+    font-family: "Plex Mono", monospace;
+    font-size: 0.82rem;
+    color: var(--accent);
+    flex: none;
+    padding-top: 0.15rem;
+  }
+  .pub-item .cite { font-size: 0.95rem; color: var(--ink-soft); }
+  .pub-item .cite a { color: var(--ink); font-weight: 600; text-decoration: none; }
+  .pub-item .cite a:hover { color: var(--accent); text-decoration: underline; }
+  .pub-item .venue { font-style: italic; }
+  .pub-more {
+    margin-top: 1.3rem;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---- expertise ---- */
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.8rem;
+  }
+  .expertise-col h3 {
+    font-family: "Plex Mono", monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.8rem;
+  }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tag {
+    font-size: 0.83rem;
+    color: var(--ink-soft);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 0.28rem 0.6rem;
+    border-radius: 5px;
+  }
+
+  /* ---- footer ---- */
+  footer { padding: 3rem 0 4rem; }
+  .footer-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  footer h2 { font-size: 1.5rem; margin-bottom: 0.6rem; }
+  footer .foot-lede { color: var(--ink-soft); max-width: 40ch; font-size: 0.96rem; }
+  .foot-links { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; }
+  .foot-links a {
+    font-family: "Plex Mono", monospace;
+    font-size: 0.88rem;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .foot-links a:hover { color: var(--accent); }
+  .foot-note {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-photo, .hero-text > * { animation: rise 0.6s ease both; }
+    .hero-text > *:nth-child(2) { animation-delay: 0.05s; }
+    .hero-text > *:nth-child(3) { animation-delay: 0.1s; }
+    .hero-text > *:nth-child(4) { animation-delay: 0.15s; }
+    .hero-text > *:nth-child(5) { animation-delay: 0.2s; }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-grid { flex-direction: column; }
+    .hero-photo { width: 96px; height: 96px; }
+    .impact-grid { grid-template-columns: 1fr; }
+    .expertise-grid { grid-template-columns: 1fr; gap: 1.4rem; }
+    .topbar nav { gap: 0.9rem; }
+    .topbar nav a { font-size: 0.78rem; }
+    .footer-grid { flex-direction: column; align-items: flex-start; }
+    .foot-links { align-items: flex-start; }
+  }
+</style>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">K. RUTHERFORD</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="border-top:none;">
+    <div class="wrap hero-grid">
+      <div class="hero-photo">
+        <img src="data:image/jpeg;base64,__HEADSHOT__" alt="Portrait of Kayleigh Rutherford">
+      </div>
+      <div class="hero-text">
+        <h1>Kayleigh Rutherford</h1>
+        <p class="role">Senior Computational Biologist · Genomics, ML &amp; Clinical Data</p>
+        <span class="status-pill"><span class="dot"></span>Open to ML/Data Science &amp; health-data roles in industry</span>
+        <p class="hero-lede">Ten years turning genomic and clinical data into diagnoses, risk models, and infrastructure used in real hospitals — across oncology, hematology, rare disease, and neonatology. Now looking to bring that rigor to industry.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:kayrut1@gmail.com">Email me</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/kayleighrutherford/">LinkedIn</a>
+          <a class="btn btn-ghost" href="https://github.com/KayleighRutherford">GitHub</a>
+          <a class="btn btn-ghost" href="https://scholar.google.com/citations?user=TxgzbiQAAAAJ&amp;hl=en">Scholar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <span class="eyebrow">About</span>
+      <div class="about-body">
+        <p>I trained as a geneticist and computer scientist in Cape Town, then spent a decade in some of the country's most demanding translational genomics groups — Harvard, Memorial Sloan Kettering, and now Mount Sinai — building the analytical infrastructure that turns sequencing data into decisions clinicians can act on.</p>
+        <p>My most recent work has shifted toward prediction: building machine learning models on hematologic and genomic data to flag thrombotic risk before it becomes a crisis, and the secure, multi-institution data platforms that make that kind of modeling possible at scale. That combination — messy real-world data, high-stakes predictions, production-grade pipelines — is what I want to bring to an industry ML, data science, or health-data platform team next.</p>
+        <blockquote class="pull">I found a mutation that explained why a newborn had died. It was published, validated in the lab, and used clinically to guide the family's next pregnancy.</blockquote>
+        <p>Outside of the analysis itself, I've led studies end-to-end across 30+ translational genomics projects, trained graduate researchers, and built course material used to teach RNA-seq analysis at Harvard Medical School. I'm based in New York, NY.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="impact">
+    <div class="wrap">
+      <span class="eyebrow">Selected Impact</span>
+      <div class="impact-grid">
+        <div class="impact-card">
+          <span class="impact-tag">NEONATAL DX</span>
+          <p>Delivered genetic diagnoses for 18 families in a multi-hospital neonatal sequencing study, enabling informed reproductive planning after infant loss.</p>
+        </div>
+        <div class="impact-card">
+          <span class="impact-tag">NEONATAL DX</span>
+          <p>Discovered a novel pathogenic mutation implicated in a neonate's death — validated experimentally, published, and used clinically to guide IVF for the bereaved family.</p>
+        </div>
+        <div class="impact-card">
+          <span class="impact-tag">INFRASTRUCTURE</span>
+          <p>Built secure clinical-genomic infrastructure supporting collaborative analysis across 16+ hospitals, while protecting patient identity.</p>
+        </div>
+        <div class="impact-card">
+          <span class="impact-tag">ML / RISK</span>
+          <p>Developed a machine learning model predicting thrombotic risk from widely-used hematology analyzer data, using a novel protocol and derived phenotype.</p>
+        </div>
+        <div class="impact-card" style="grid-column: 1 / -1;">
+          <span class="impact-tag">ONCOLOGY</span>
+          <p>Generated genomic findings on cancer evolution under therapy, informing leukemia surveillance strategies at a major cancer center.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <span class="eyebrow">Experience</span>
+
+      <div class="job">
+        <div class="job-head">
+          <div>
+            <h3>Senior Computational Biologist (Bioinformatician III)</h3>
+            <div class="job-org">Mount Sinai — Mindich Center for Child Health and Development</div>
+          </div>
+          <div class="job-date mono">2022 — Present</div>
+        </div>
+        <ul>
+          <li>Lead computational architect for NICUnet, a multi-institution study across 16+ hospitals investigating genetic causes of neonatal mortality from whole genome sequencing.</li>
+          <li>Developed a secure clinical-genomic data platform enabling collaborative analysis while protecting patient identity.</li>
+          <li>Identified pathogenic variants diagnosing previously unresolved clinical cases of neonatal death.</li>
+          <li>Developed ML models integrating hematologic phenotypes and genomic biobank data to predict platelet reactivity and thrombotic risk.</li>
+          <li>Built custom software to analyze proprietary clinical blood-analyzer data for use in genetic association studies.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div>
+            <h3>Computational Biologist I</h3>
+            <div class="job-org">Memorial Sloan Kettering Cancer Center</div>
+          </div>
+          <div class="job-date mono">2019 — 2022</div>
+        </div>
+        <ul>
+          <li>Directed genomic analyses of targeted sequencing data to characterize genetic drivers of clonal evolution and therapy response in therapy-related leukemia.</li>
+          <li>Generated findings that guided surveillance protocols for pediatric cancer survivors.</li>
+          <li>Led multiple studies from analysis through publication, spanning minimal residual disease, therapy-related malignancies, and pediatric myeloproliferative neoplasms.</li>
+          <li>Trained graduate researchers and developed course materials in RNA-seq analysis.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div>
+            <h3>Bioinformatics Analyst</h3>
+            <div class="job-org">Harvard School of Public Health</div>
+          </div>
+          <div class="job-date mono">2017 — 2019</div>
+        </div>
+        <ul>
+          <li>Led analyses across 13+ translational genomics projects spanning cancer, autoimmune disease, fibrosis, and aging.</li>
+          <li>Partnered with clinicians to design and execute computational strategies addressing biological hypotheses, from data to publication.</li>
+          <li>Benchmarked a custom genomic analysis platform that was broadly adopted by other research groups.</li>
+          <li>Taught RNA-seq analysis to students and researchers at Harvard Medical School as part of the Harvard Bioinformatics Training Team.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <span class="eyebrow">Education</span>
+      <ul class="edu-list">
+        <li>
+          <span><span class="deg">M.S., Bioinformatics</span> — <span class="school">Boston University</span></span>
+          <span class="edu-year mono">2017</span>
+        </li>
+        <li>
+          <span><span class="deg">B.Med.Sci. Honours, Bioinformatics</span> — <span class="school">University of Cape Town</span></span>
+          <span class="edu-year mono">2015</span>
+        </li>
+        <li>
+          <span><span class="deg">B.S., Genetics &amp; Computer Science</span> — <span class="school">University of Cape Town</span></span>
+          <span class="edu-year mono">2014</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="wrap">
+      <span class="eyebrow">Publications</span>
+      <div class="pub-stats">16 publications · ~318 citations</div>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <div class="cite">
+            Richter F, Rutherford KD, Cooke AJ, Meshkati M, Eddy-Abrams V, et al. <a href="https://doi.org/10.1053/j.ajkd.2023.12.011">A deep intronic PKHD1 variant identified by SpliceAI in a deceased neonate with autosomal recessive polycystic kidney disease</a>. <span class="venue">American Journal of Kidney Diseases</span>, 2024; 83(6):829–833.
+          </div>
+        </li>
+        <li class="pub-item">
+          <div class="cite">
+            Spitzer B, Rutherford KD, Gundem G, McGovern EM, Millard NE, et al. <a href="https://doi.org/10.1158/1078-0432.CCR-21-2451">Bone marrow surveillance of pediatric cancer survivors identifies clones that predict therapy-related leukemia</a>. <span class="venue">Clinical Cancer Research</span>, 2022; 28(8):1614–1627.
+          </div>
+        </li>
+        <li class="pub-item">
+          <div class="cite">
+            Henderson LA, Hoyt KJ, Lee PY, Rao DA, Jonsson AH, Nguyen JP, et al., Rutherford K. <a href="https://doi.org/10.1172/jci.insight.132508">Th17 reprogramming of T cells in systemic juvenile idiopathic arthritis</a>. <span class="venue">JCI Insight</span>, 2020; 5(6):e132508.
+          </div>
+        </li>
+      </ul>
+      <p class="pub-more">Full list of 16 publications, including work on CAR T-cell therapy, MDS/CMML clonal dynamics, and computational method development → <a href="https://scholar.google.com/citations?user=TxgzbiQAAAAJ&hl=en">Google Scholar profile</a></p>
+    </div>
+  </section>
+
+  <section id="expertise">
+    <div class="wrap">
+      <span class="eyebrow">Expertise</span>
+      <div class="expertise-grid">
+        <div class="expertise-col">
+          <h3>Domain</h3>
+          <div class="tag-list">
+            <span class="tag">Translational genomics</span>
+            <span class="tag">Variant interpretation</span>
+            <span class="tag">Disease gene discovery</span>
+            <span class="tag">Cohort analysis</span>
+            <span class="tag">Clinical data integration</span>
+          </div>
+        </div>
+        <div class="expertise-col">
+          <h3>Computational</h3>
+          <div class="tag-list">
+            <span class="tag">R</span>
+            <span class="tag">Python</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Statistical modeling</span>
+            <span class="tag">Machine learning</span>
+            <span class="tag">Pipeline development</span>
+            <span class="tag">HPC</span>
+          </div>
+        </div>
+        <div class="expertise-col">
+          <h3>Data Modalities</h3>
+          <div class="tag-list">
+            <span class="tag">Whole genome sequencing</span>
+            <span class="tag">RNA-seq</span>
+            <span class="tag">Single-cell</span>
+            <span class="tag">Targeted panels</span>
+            <span class="tag">Structural variants</span>
+            <span class="tag">Copy number variants</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>Let's talk.</h2>
+        <p class="foot-lede">Open to ML/data science and health-data platform roles. Happy to walk through any of the work above in more detail.</p>
+      </div>
+      <div class="foot-links">
+        <a href="mailto:kayrut1@gmail.com">kayrut1@gmail.com</a>
+        <a href="https://www.linkedin.com/in/kayleighrutherford/">linkedin.com/in/kayleighrutherford</a>
+        <a href="https://github.com/KayleighRutherford">github.com/KayleighRutherford</a>
+        <a href="https://scholar.google.com/citations?user=TxgzbiQAAAAJ&amp;hl=en">Google Scholar</a>
+      </div>
+    </div>
+    <div class="foot-note">
+      <span>Kayleigh Rutherford · New York, NY</span>
+      <span>Updated August 2026</span>
+    </div>
+  </div>
+</footer>
